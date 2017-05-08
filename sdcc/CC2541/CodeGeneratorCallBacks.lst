@@ -1,0 +1,1256 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 3.4.0/*rc1*/ #8960 (Mar 15 2014) (MINGW32)
+                                      4 ; This file was generated Tue Jun 03 20:48:55 2014
+                                      5 ;--------------------------------------------------------
+                                      6 	.module CodeGeneratorCallBacks
+                                      7 	.optsdcc -mmcs51 --model-small
+                                      8 	
+                                      9 ;--------------------------------------------------------
+                                     10 ; Public variables in this module
+                                     11 ;--------------------------------------------------------
+                                     12 	.globl _cg_timeserviceChangeCB
+                                     13 	.globl _cg_EVT_4_CB
+                                     14 	.globl _cg_EVT_3_CB
+                                     15 	.globl _cg_EVT_2_CB
+                                     16 	.globl _cg_EVT_1_CB
+                                     17 	.globl _cg_battProfileChangeCB
+                                     18 	.globl _cg_accelEnablerChangeCB
+                                     19 	.globl _cg_simpleProfileChangeCB
+                                     20 	.globl _timeservice_GetParameter
+                                     21 	.globl _rtcSetAlarm
+                                     22 	.globl _rtcSetDate
+                                     23 	.globl _rtcSetTime
+                                     24 	.globl _rtcInit
+                                     25 	.globl _accInit
+                                     26 	.globl _Accel_GetParameter
+                                     27 	.globl _SimpleProfile_GetParameter
+                                     28 	.globl _osal_stop_timerEx
+                                     29 	.globl _osal_start_timerEx
+                                     30 	.globl _U1CSR_MODE
+                                     31 	.globl _U1CSR_7
+                                     32 	.globl _U1CSR_RE
+                                     33 	.globl _U1CSR_6
+                                     34 	.globl _U1CSR_SLAVE
+                                     35 	.globl _U1CSR_5
+                                     36 	.globl _U1CSR_FE
+                                     37 	.globl _U1CSR_4
+                                     38 	.globl _U1CSR_ERR
+                                     39 	.globl _U1CSR_3
+                                     40 	.globl _U1CSR_RX_BYTE
+                                     41 	.globl _U1CSR_2
+                                     42 	.globl _U1CSR_TX_BYTE
+                                     43 	.globl _U1CSR_1
+                                     44 	.globl _U1CSR_ACTIVE
+                                     45 	.globl _U1CSR_0
+                                     46 	.globl _B_7
+                                     47 	.globl _B_6
+                                     48 	.globl _B_5
+                                     49 	.globl _B_4
+                                     50 	.globl _B_3
+                                     51 	.globl _B_2
+                                     52 	.globl _B_1
+                                     53 	.globl _B_0
+                                     54 	.globl _IRCON2_7
+                                     55 	.globl _IRCON2_6
+                                     56 	.globl _IRCON2_5
+                                     57 	.globl _IRCON2_WDTIF
+                                     58 	.globl _IRCON2_4
+                                     59 	.globl _IRCON2_P1IF
+                                     60 	.globl _IRCON2_3
+                                     61 	.globl _IRCON2_UTX1IF
+                                     62 	.globl _IRCON2_2
+                                     63 	.globl _IRCON2_UTX0IF
+                                     64 	.globl _IRCON2_1
+                                     65 	.globl _IRCON2_P2IF
+                                     66 	.globl _IRCON2_0
+                                     67 	.globl _ACC_7
+                                     68 	.globl _ACC_6
+                                     69 	.globl _ACC_5
+                                     70 	.globl _ACC_4
+                                     71 	.globl _ACC_3
+                                     72 	.globl _ACC_2
+                                     73 	.globl _ACC_1
+                                     74 	.globl _ACC_0
+                                     75 	.globl _TIMIF_7
+                                     76 	.globl _TIMIF_T1OVFIM
+                                     77 	.globl _TIMIF_6
+                                     78 	.globl _TIMIF_T4CH1IF
+                                     79 	.globl _TIMIF_5
+                                     80 	.globl _TIMIF_T4CH0IF
+                                     81 	.globl _TIMIF_4
+                                     82 	.globl _TIMIF_T4OVFIF
+                                     83 	.globl _TIMIF_3
+                                     84 	.globl _TIMIF_T3CH1IF
+                                     85 	.globl _TIMIF_2
+                                     86 	.globl _TIMIF_T3CH0IF
+                                     87 	.globl _TIMIF_1
+                                     88 	.globl _TIMIF_T3OVFIF
+                                     89 	.globl _TIMIF_0
+                                     90 	.globl _PSW_CY
+                                     91 	.globl _PSW_7
+                                     92 	.globl _PSW_AC
+                                     93 	.globl _PSW_6
+                                     94 	.globl _PSW_F0
+                                     95 	.globl _PSW_5
+                                     96 	.globl _PSW_4
+                                     97 	.globl _PSW_3
+                                     98 	.globl _PSW_OV
+                                     99 	.globl _PSW_2
+                                    100 	.globl _PSW_F1
+                                    101 	.globl _PSW_1
+                                    102 	.globl _PSW_P
+                                    103 	.globl _PSW_0
+                                    104 	.globl _IRCON_STIF
+                                    105 	.globl _IRCON_7
+                                    106 	.globl _IRCON_6
+                                    107 	.globl _IRCON_P0IF
+                                    108 	.globl _IRCON_5
+                                    109 	.globl _IRCON_T4IF
+                                    110 	.globl _IRCON_4
+                                    111 	.globl _IRCON_T3IF
+                                    112 	.globl _IRCON_3
+                                    113 	.globl _IRCON_T2IF
+                                    114 	.globl _IRCON_2
+                                    115 	.globl _IRCON_T1IF
+                                    116 	.globl _IRCON_1
+                                    117 	.globl _IRCON_DMAIF
+                                    118 	.globl _IRCON_0
+                                    119 	.globl _IEN1_7
+                                    120 	.globl _IEN1_6
+                                    121 	.globl _IEN1_P0IE
+                                    122 	.globl _IEN1_5
+                                    123 	.globl _IEN1_T4IE
+                                    124 	.globl _IEN1_4
+                                    125 	.globl _IEN1_T3IE
+                                    126 	.globl _IEN1_3
+                                    127 	.globl _IEN1_T2IE
+                                    128 	.globl _IEN1_2
+                                    129 	.globl _IEN1_T1IE
+                                    130 	.globl _IEN1_1
+                                    131 	.globl _IEN1_DMAIE
+                                    132 	.globl _IEN1_0
+                                    133 	.globl _IEN0_EA
+                                    134 	.globl _IEN0_7
+                                    135 	.globl _IEN0_6
+                                    136 	.globl _IEN0_STIE
+                                    137 	.globl _IEN0_5
+                                    138 	.globl _IEN0_ENCIE
+                                    139 	.globl _IEN0_4
+                                    140 	.globl _IEN0_URX1IE
+                                    141 	.globl _IEN0_3
+                                    142 	.globl _IEN0_URX0IE
+                                    143 	.globl _IEN0_2
+                                    144 	.globl _IEN0_ADCIE
+                                    145 	.globl _IEN0_1
+                                    146 	.globl _IEN0_RFERRIE
+                                    147 	.globl _IEN0_0
+                                    148 	.globl _P2_7
+                                    149 	.globl _P2_6
+                                    150 	.globl _P2_5
+                                    151 	.globl _P2__4
+                                    152 	.globl _P2_4
+                                    153 	.globl _P2__3
+                                    154 	.globl _P2_3
+                                    155 	.globl _P2__2
+                                    156 	.globl _P2_2
+                                    157 	.globl _P2__1
+                                    158 	.globl _P2_1
+                                    159 	.globl _P2__0
+                                    160 	.globl _P2_0
+                                    161 	.globl _S0CON_7
+                                    162 	.globl _S0CON_6
+                                    163 	.globl _S0CON_5
+                                    164 	.globl _S0CON_4
+                                    165 	.globl _S0CON_3
+                                    166 	.globl _S0CON_2
+                                    167 	.globl _S0CON_ENCIF_1
+                                    168 	.globl _S0CON_1
+                                    169 	.globl _S0CON_ENCIF_0
+                                    170 	.globl _S0CON_0
+                                    171 	.globl _P1_7
+                                    172 	.globl _P1_6
+                                    173 	.globl _P1_5
+                                    174 	.globl _P1_4
+                                    175 	.globl _P1_3
+                                    176 	.globl _P1_2
+                                    177 	.globl _P1_1
+                                    178 	.globl _P1_0
+                                    179 	.globl _TCON_URX1IF
+                                    180 	.globl _TCON_7
+                                    181 	.globl _TCON_6
+                                    182 	.globl _TCON_ADCIF
+                                    183 	.globl _TCON_5
+                                    184 	.globl _TCON_4
+                                    185 	.globl _TCON_URX0IF
+                                    186 	.globl _TCON_3
+                                    187 	.globl _TCON_IT1
+                                    188 	.globl _TCON_2
+                                    189 	.globl _TCON_RFERRIF
+                                    190 	.globl _TCON_1
+                                    191 	.globl _TCON_IT0
+                                    192 	.globl _TCON_0
+                                    193 	.globl _P0_7
+                                    194 	.globl _P0_6
+                                    195 	.globl _P0_5
+                                    196 	.globl _P0_4
+                                    197 	.globl _P0_3
+                                    198 	.globl _P0_2
+                                    199 	.globl _P0_1
+                                    200 	.globl _P0_0
+                                    201 	.globl _P2DIR
+                                    202 	.globl _P1DIR
+                                    203 	.globl _P0DIR
+                                    204 	.globl _U1GCR
+                                    205 	.globl _U1UCR
+                                    206 	.globl _U1BAUD
+                                    207 	.globl _U1DBUF
+                                    208 	.globl _U1CSR
+                                    209 	.globl _P2INP
+                                    210 	.globl _P1INP
+                                    211 	.globl _P2SEL
+                                    212 	.globl _P1SEL
+                                    213 	.globl _P0SEL
+                                    214 	.globl _APCFG
+                                    215 	.globl _PERCFG
+                                    216 	.globl _B
+                                    217 	.globl _T4CC1
+                                    218 	.globl _T4CCTL1
+                                    219 	.globl _T4CC0
+                                    220 	.globl _T4CCTL0
+                                    221 	.globl _T4CTL
+                                    222 	.globl _T4CNT
+                                    223 	.globl _RFIRQF0
+                                    224 	.globl _IRCON2
+                                    225 	.globl _T1CCTL2
+                                    226 	.globl _T1CCTL1
+                                    227 	.globl _T1CCTL0
+                                    228 	.globl _T1CTL
+                                    229 	.globl _T1CNTH
+                                    230 	.globl _T1CNTL
+                                    231 	.globl _RFST
+                                    232 	.globl _ACC
+                                    233 	.globl _T1CC2H
+                                    234 	.globl _T1CC2L
+                                    235 	.globl _T1CC1H
+                                    236 	.globl _T1CC1L
+                                    237 	.globl _T1CC0H
+                                    238 	.globl _T1CC0L
+                                    239 	.globl _RFD
+                                    240 	.globl _TIMIF
+                                    241 	.globl _DMAREQ
+                                    242 	.globl _DMAARM
+                                    243 	.globl _DMA0CFGH
+                                    244 	.globl _DMA0CFGL
+                                    245 	.globl _DMA1CFGH
+                                    246 	.globl _DMA1CFGL
+                                    247 	.globl _DMAIRQ
+                                    248 	.globl _PSW
+                                    249 	.globl _T3CC1
+                                    250 	.globl _T3CCTL1
+                                    251 	.globl _T3CC0
+                                    252 	.globl _T3CCTL0
+                                    253 	.globl _T3CTL
+                                    254 	.globl _T3CNT
+                                    255 	.globl _WDCTL
+                                    256 	.globl _MEMCTR
+                                    257 	.globl _CLKCONCMD
+                                    258 	.globl _U0GCR
+                                    259 	.globl _U0UCR
+                                    260 	.globl _T2MSEL
+                                    261 	.globl _U0BAUD
+                                    262 	.globl _U0DBUF
+                                    263 	.globl _IRCON
+                                    264 	.globl _RFERRF
+                                    265 	.globl _SLEEPCMD
+                                    266 	.globl _RNDH
+                                    267 	.globl _RNDL
+                                    268 	.globl _ADCH
+                                    269 	.globl _ADCL
+                                    270 	.globl _IP1
+                                    271 	.globl _IEN1
+                                    272 	.globl _ADCCON3
+                                    273 	.globl _ADCCON2
+                                    274 	.globl _ADCCON1
+                                    275 	.globl _ENCCS
+                                    276 	.globl _ENCDO
+                                    277 	.globl _ENCDI
+                                    278 	.globl _T1STAT
+                                    279 	.globl _PMUX
+                                    280 	.globl _P2IEN
+                                    281 	.globl _P0IEN
+                                    282 	.globl _IP0
+                                    283 	.globl _IEN0
+                                    284 	.globl _T2IRQM
+                                    285 	.globl _T2MOVF2
+                                    286 	.globl _T2MOVF1
+                                    287 	.globl _T2MOVF0
+                                    288 	.globl _T2M1
+                                    289 	.globl _T2M0
+                                    290 	.globl _T2IRQF
+                                    291 	.globl _P2
+                                    292 	.globl _FMAP
+                                    293 	.globl _CLKCONSTA
+                                    294 	.globl _SLEEPSTA
+                                    295 	.globl _T2EVTCFG
+                                    296 	.globl _S1CON
+                                    297 	.globl _IEN2
+                                    298 	.globl _S0CON
+                                    299 	.globl _ST2
+                                    300 	.globl _ST1
+                                    301 	.globl _STLOAD
+                                    302 	.globl _ST0
+                                    303 	.globl _T2CTRL
+                                    304 	.globl _MPAGE
+                                    305 	.globl _DPS
+                                    306 	.globl _RFIRQF1
+                                    307 	.globl _P1
+                                    308 	.globl _P0INP
+                                    309 	.globl _P1IEN
+                                    310 	.globl _PICTL
+                                    311 	.globl _P2IFG
+                                    312 	.globl _P1IFG
+                                    313 	.globl _P0IFG
+                                    314 	.globl _TCON
+                                    315 	.globl _PCON
+                                    316 	.globl _U0CSR
+                                    317 	.globl _DPH1
+                                    318 	.globl _DPL1
+                                    319 	.globl _DPH0
+                                    320 	.globl _DPL0
+                                    321 	.globl _SP
+                                    322 	.globl _P0
+                                    323 	.globl _timeEnabler
+                                    324 	.globl _attDeviceName
+                                    325 	.globl _simpleBLEPeripheral_TaskID
+                                    326 	.globl _accelEnabler
+                                    327 	.globl _fer
+                                    328 	.globl _buf
+                                    329 	.globl _CMPCTL
+                                    330 	.globl _OPAMPS
+                                    331 	.globl _OPAMPC
+                                    332 	.globl _STCV2
+                                    333 	.globl _STCV1
+                                    334 	.globl _STCV0
+                                    335 	.globl _STCS
+                                    336 	.globl _STCC
+                                    337 	.globl _T1CC4H
+                                    338 	.globl _T1CC4L
+                                    339 	.globl _T1CC3H
+                                    340 	.globl _T1CC3L
+                                    341 	.globl _T1CCTL4
+                                    342 	.globl _T1CCTL3
+                                    343 	.globl _CLD
+                                    344 	.globl _IRCTL
+                                    345 	.globl _CHIPINFO1
+                                    346 	.globl _CHIPINFO0
+                                    347 	.globl _FWDATA
+                                    348 	.globl _FADDRH
+                                    349 	.globl _FADDRL
+                                    350 	.globl _FCTL
+                                    351 	.globl _IVCTRL
+                                    352 	.globl _BATTMON
+                                    353 	.globl _DBGDATA
+                                    354 	.globl _TR0
+                                    355 	.globl _CHIPID
+                                    356 	.globl _CHVER
+                                    357 	.globl _OBSSEL5
+                                    358 	.globl _OBSSEL4
+                                    359 	.globl _OBSSEL3
+                                    360 	.globl _OBSSEL2
+                                    361 	.globl _OBSSEL1
+                                    362 	.globl _OBSSEL0
+                                    363 	.globl _USBCSIL
+                                    364 	.globl _USBCS0
+                                    365 	.globl _USBMAXI
+                                    366 	.globl _USBCTRL
+                                    367 	.globl _USBINDEX
+                                    368 	.globl _USBFRMH
+                                    369 	.globl _USBFRML
+                                    370 	.globl _USBCIE
+                                    371 	.globl _USBOIE
+                                    372 	.globl _USBIIE
+                                    373 	.globl _USBOIF
+                                    374 	.globl _USBIIF
+                                    375 	.globl _USBPOW
+                                    376 	.globl _USBADDR
+                                    377 	.globl _RFC_OBS_CTRL2
+                                    378 	.globl _RFC_OBS_CTRL1
+                                    379 	.globl _RFC_OBS
+                                    380 	.globl _OPAMPMC
+                                    381 	.globl _ATEST
+                                    382 	.globl _RFSTAT
+                                    383 ;--------------------------------------------------------
+                                    384 ; special function registers
+                                    385 ;--------------------------------------------------------
+                                    386 	.area RSEG    (ABS,DATA)
+      000000                        387 	.org 0x0000
+                           000080   388 _P0	=	0x0080
+                           000081   389 _SP	=	0x0081
+                           000082   390 _DPL0	=	0x0082
+                           000083   391 _DPH0	=	0x0083
+                           000084   392 _DPL1	=	0x0084
+                           000085   393 _DPH1	=	0x0085
+                           000086   394 _U0CSR	=	0x0086
+                           000087   395 _PCON	=	0x0087
+                           000088   396 _TCON	=	0x0088
+                           000089   397 _P0IFG	=	0x0089
+                           00008A   398 _P1IFG	=	0x008a
+                           00008B   399 _P2IFG	=	0x008b
+                           00008C   400 _PICTL	=	0x008c
+                           00008D   401 _P1IEN	=	0x008d
+                           00008F   402 _P0INP	=	0x008f
+                           000090   403 _P1	=	0x0090
+                           000091   404 _RFIRQF1	=	0x0091
+                           000092   405 _DPS	=	0x0092
+                           000093   406 _MPAGE	=	0x0093
+                           000094   407 _T2CTRL	=	0x0094
+                           000095   408 _ST0	=	0x0095
+                           000095   409 _STLOAD	=	0x0095
+                           000096   410 _ST1	=	0x0096
+                           000097   411 _ST2	=	0x0097
+                           000098   412 _S0CON	=	0x0098
+                           00009A   413 _IEN2	=	0x009a
+                           00009B   414 _S1CON	=	0x009b
+                           00009C   415 _T2EVTCFG	=	0x009c
+                           00009D   416 _SLEEPSTA	=	0x009d
+                           00009E   417 _CLKCONSTA	=	0x009e
+                           00009F   418 _FMAP	=	0x009f
+                           0000A0   419 _P2	=	0x00a0
+                           0000A1   420 _T2IRQF	=	0x00a1
+                           0000A2   421 _T2M0	=	0x00a2
+                           0000A3   422 _T2M1	=	0x00a3
+                           0000A4   423 _T2MOVF0	=	0x00a4
+                           0000A5   424 _T2MOVF1	=	0x00a5
+                           0000A6   425 _T2MOVF2	=	0x00a6
+                           0000A7   426 _T2IRQM	=	0x00a7
+                           0000A8   427 _IEN0	=	0x00a8
+                           0000A9   428 _IP0	=	0x00a9
+                           0000AB   429 _P0IEN	=	0x00ab
+                           0000AC   430 _P2IEN	=	0x00ac
+                           0000AE   431 _PMUX	=	0x00ae
+                           0000AF   432 _T1STAT	=	0x00af
+                           0000B1   433 _ENCDI	=	0x00b1
+                           0000B2   434 _ENCDO	=	0x00b2
+                           0000B3   435 _ENCCS	=	0x00b3
+                           0000B4   436 _ADCCON1	=	0x00b4
+                           0000B5   437 _ADCCON2	=	0x00b5
+                           0000B6   438 _ADCCON3	=	0x00b6
+                           0000B8   439 _IEN1	=	0x00b8
+                           0000B9   440 _IP1	=	0x00b9
+                           0000BA   441 _ADCL	=	0x00ba
+                           0000BB   442 _ADCH	=	0x00bb
+                           0000BC   443 _RNDL	=	0x00bc
+                           0000BD   444 _RNDH	=	0x00bd
+                           0000BE   445 _SLEEPCMD	=	0x00be
+                           0000BF   446 _RFERRF	=	0x00bf
+                           0000C0   447 _IRCON	=	0x00c0
+                           0000C1   448 _U0DBUF	=	0x00c1
+                           0000C2   449 _U0BAUD	=	0x00c2
+                           0000C3   450 _T2MSEL	=	0x00c3
+                           0000C4   451 _U0UCR	=	0x00c4
+                           0000C5   452 _U0GCR	=	0x00c5
+                           0000C6   453 _CLKCONCMD	=	0x00c6
+                           0000C7   454 _MEMCTR	=	0x00c7
+                           0000C9   455 _WDCTL	=	0x00c9
+                           0000CA   456 _T3CNT	=	0x00ca
+                           0000CB   457 _T3CTL	=	0x00cb
+                           0000CC   458 _T3CCTL0	=	0x00cc
+                           0000CD   459 _T3CC0	=	0x00cd
+                           0000CE   460 _T3CCTL1	=	0x00ce
+                           0000CF   461 _T3CC1	=	0x00cf
+                           0000D0   462 _PSW	=	0x00d0
+                           0000D1   463 _DMAIRQ	=	0x00d1
+                           0000D2   464 _DMA1CFGL	=	0x00d2
+                           0000D3   465 _DMA1CFGH	=	0x00d3
+                           0000D4   466 _DMA0CFGL	=	0x00d4
+                           0000D5   467 _DMA0CFGH	=	0x00d5
+                           0000D6   468 _DMAARM	=	0x00d6
+                           0000D7   469 _DMAREQ	=	0x00d7
+                           0000D8   470 _TIMIF	=	0x00d8
+                           0000D9   471 _RFD	=	0x00d9
+                           0000DA   472 _T1CC0L	=	0x00da
+                           0000DB   473 _T1CC0H	=	0x00db
+                           0000DC   474 _T1CC1L	=	0x00dc
+                           0000DD   475 _T1CC1H	=	0x00dd
+                           0000DE   476 _T1CC2L	=	0x00de
+                           0000DF   477 _T1CC2H	=	0x00df
+                           0000E0   478 _ACC	=	0x00e0
+                           0000E1   479 _RFST	=	0x00e1
+                           0000E2   480 _T1CNTL	=	0x00e2
+                           0000E3   481 _T1CNTH	=	0x00e3
+                           0000E4   482 _T1CTL	=	0x00e4
+                           0000E5   483 _T1CCTL0	=	0x00e5
+                           0000E6   484 _T1CCTL1	=	0x00e6
+                           0000E7   485 _T1CCTL2	=	0x00e7
+                           0000E8   486 _IRCON2	=	0x00e8
+                           0000E9   487 _RFIRQF0	=	0x00e9
+                           0000EA   488 _T4CNT	=	0x00ea
+                           0000EB   489 _T4CTL	=	0x00eb
+                           0000EC   490 _T4CCTL0	=	0x00ec
+                           0000ED   491 _T4CC0	=	0x00ed
+                           0000EE   492 _T4CCTL1	=	0x00ee
+                           0000EF   493 _T4CC1	=	0x00ef
+                           0000F0   494 _B	=	0x00f0
+                           0000F1   495 _PERCFG	=	0x00f1
+                           0000F2   496 _APCFG	=	0x00f2
+                           0000F3   497 _P0SEL	=	0x00f3
+                           0000F4   498 _P1SEL	=	0x00f4
+                           0000F5   499 _P2SEL	=	0x00f5
+                           0000F6   500 _P1INP	=	0x00f6
+                           0000F7   501 _P2INP	=	0x00f7
+                           0000F8   502 _U1CSR	=	0x00f8
+                           0000F9   503 _U1DBUF	=	0x00f9
+                           0000FA   504 _U1BAUD	=	0x00fa
+                           0000FB   505 _U1UCR	=	0x00fb
+                           0000FC   506 _U1GCR	=	0x00fc
+                           0000FD   507 _P0DIR	=	0x00fd
+                           0000FE   508 _P1DIR	=	0x00fe
+                           0000FF   509 _P2DIR	=	0x00ff
+                                    510 ;--------------------------------------------------------
+                                    511 ; special function bits
+                                    512 ;--------------------------------------------------------
+                                    513 	.area RSEG    (ABS,DATA)
+      000000                        514 	.org 0x0000
+                           000080   515 _P0_0	=	0x0080
+                           000081   516 _P0_1	=	0x0081
+                           000082   517 _P0_2	=	0x0082
+                           000083   518 _P0_3	=	0x0083
+                           000084   519 _P0_4	=	0x0084
+                           000085   520 _P0_5	=	0x0085
+                           000086   521 _P0_6	=	0x0086
+                           000087   522 _P0_7	=	0x0087
+                           000088   523 _TCON_0	=	0x0088
+                           000088   524 _TCON_IT0	=	0x0088
+                           000089   525 _TCON_1	=	0x0089
+                           000089   526 _TCON_RFERRIF	=	0x0089
+                           00008A   527 _TCON_2	=	0x008a
+                           00008A   528 _TCON_IT1	=	0x008a
+                           00008B   529 _TCON_3	=	0x008b
+                           00008B   530 _TCON_URX0IF	=	0x008b
+                           00008C   531 _TCON_4	=	0x008c
+                           00008D   532 _TCON_5	=	0x008d
+                           00008D   533 _TCON_ADCIF	=	0x008d
+                           00008E   534 _TCON_6	=	0x008e
+                           00008F   535 _TCON_7	=	0x008f
+                           00008F   536 _TCON_URX1IF	=	0x008f
+                           000090   537 _P1_0	=	0x0090
+                           000091   538 _P1_1	=	0x0091
+                           000092   539 _P1_2	=	0x0092
+                           000093   540 _P1_3	=	0x0093
+                           000094   541 _P1_4	=	0x0094
+                           000095   542 _P1_5	=	0x0095
+                           000096   543 _P1_6	=	0x0096
+                           000097   544 _P1_7	=	0x0097
+                           000098   545 _S0CON_0	=	0x0098
+                           000098   546 _S0CON_ENCIF_0	=	0x0098
+                           000099   547 _S0CON_1	=	0x0099
+                           000099   548 _S0CON_ENCIF_1	=	0x0099
+                           00009A   549 _S0CON_2	=	0x009a
+                           00009B   550 _S0CON_3	=	0x009b
+                           00009C   551 _S0CON_4	=	0x009c
+                           00009D   552 _S0CON_5	=	0x009d
+                           00009E   553 _S0CON_6	=	0x009e
+                           00009F   554 _S0CON_7	=	0x009f
+                           0000A0   555 _P2_0	=	0x00a0
+                           0000A0   556 _P2__0	=	0x00a0
+                           0000A1   557 _P2_1	=	0x00a1
+                           0000A1   558 _P2__1	=	0x00a1
+                           0000A2   559 _P2_2	=	0x00a2
+                           0000A2   560 _P2__2	=	0x00a2
+                           0000A3   561 _P2_3	=	0x00a3
+                           0000A3   562 _P2__3	=	0x00a3
+                           0000A4   563 _P2_4	=	0x00a4
+                           0000A4   564 _P2__4	=	0x00a4
+                           0000A5   565 _P2_5	=	0x00a5
+                           0000A6   566 _P2_6	=	0x00a6
+                           0000A7   567 _P2_7	=	0x00a7
+                           0000A8   568 _IEN0_0	=	0x00a8
+                           0000A8   569 _IEN0_RFERRIE	=	0x00a8
+                           0000A9   570 _IEN0_1	=	0x00a9
+                           0000A9   571 _IEN0_ADCIE	=	0x00a9
+                           0000AA   572 _IEN0_2	=	0x00aa
+                           0000AA   573 _IEN0_URX0IE	=	0x00aa
+                           0000AB   574 _IEN0_3	=	0x00ab
+                           0000AB   575 _IEN0_URX1IE	=	0x00ab
+                           0000AC   576 _IEN0_4	=	0x00ac
+                           0000AC   577 _IEN0_ENCIE	=	0x00ac
+                           0000AD   578 _IEN0_5	=	0x00ad
+                           0000AD   579 _IEN0_STIE	=	0x00ad
+                           0000AE   580 _IEN0_6	=	0x00ae
+                           0000AF   581 _IEN0_7	=	0x00af
+                           0000AF   582 _IEN0_EA	=	0x00af
+                           0000B8   583 _IEN1_0	=	0x00b8
+                           0000B8   584 _IEN1_DMAIE	=	0x00b8
+                           0000B9   585 _IEN1_1	=	0x00b9
+                           0000B9   586 _IEN1_T1IE	=	0x00b9
+                           0000BA   587 _IEN1_2	=	0x00ba
+                           0000BA   588 _IEN1_T2IE	=	0x00ba
+                           0000BB   589 _IEN1_3	=	0x00bb
+                           0000BB   590 _IEN1_T3IE	=	0x00bb
+                           0000BC   591 _IEN1_4	=	0x00bc
+                           0000BC   592 _IEN1_T4IE	=	0x00bc
+                           0000BD   593 _IEN1_5	=	0x00bd
+                           0000BD   594 _IEN1_P0IE	=	0x00bd
+                           0000BE   595 _IEN1_6	=	0x00be
+                           0000BF   596 _IEN1_7	=	0x00bf
+                           0000C0   597 _IRCON_0	=	0x00c0
+                           0000C0   598 _IRCON_DMAIF	=	0x00c0
+                           0000C1   599 _IRCON_1	=	0x00c1
+                           0000C1   600 _IRCON_T1IF	=	0x00c1
+                           0000C2   601 _IRCON_2	=	0x00c2
+                           0000C2   602 _IRCON_T2IF	=	0x00c2
+                           0000C3   603 _IRCON_3	=	0x00c3
+                           0000C3   604 _IRCON_T3IF	=	0x00c3
+                           0000C4   605 _IRCON_4	=	0x00c4
+                           0000C4   606 _IRCON_T4IF	=	0x00c4
+                           0000C5   607 _IRCON_5	=	0x00c5
+                           0000C5   608 _IRCON_P0IF	=	0x00c5
+                           0000C6   609 _IRCON_6	=	0x00c6
+                           0000C7   610 _IRCON_7	=	0x00c7
+                           0000C7   611 _IRCON_STIF	=	0x00c7
+                           0000D0   612 _PSW_0	=	0x00d0
+                           0000D0   613 _PSW_P	=	0x00d0
+                           0000D1   614 _PSW_1	=	0x00d1
+                           0000D1   615 _PSW_F1	=	0x00d1
+                           0000D2   616 _PSW_2	=	0x00d2
+                           0000D2   617 _PSW_OV	=	0x00d2
+                           0000D3   618 _PSW_3	=	0x00d3
+                           0000D4   619 _PSW_4	=	0x00d4
+                           0000D5   620 _PSW_5	=	0x00d5
+                           0000D5   621 _PSW_F0	=	0x00d5
+                           0000D6   622 _PSW_6	=	0x00d6
+                           0000D6   623 _PSW_AC	=	0x00d6
+                           0000D7   624 _PSW_7	=	0x00d7
+                           0000D7   625 _PSW_CY	=	0x00d7
+                           0000D8   626 _TIMIF_0	=	0x00d8
+                           0000D8   627 _TIMIF_T3OVFIF	=	0x00d8
+                           0000D9   628 _TIMIF_1	=	0x00d9
+                           0000D9   629 _TIMIF_T3CH0IF	=	0x00d9
+                           0000DA   630 _TIMIF_2	=	0x00da
+                           0000DA   631 _TIMIF_T3CH1IF	=	0x00da
+                           0000DB   632 _TIMIF_3	=	0x00db
+                           0000DB   633 _TIMIF_T4OVFIF	=	0x00db
+                           0000DC   634 _TIMIF_4	=	0x00dc
+                           0000DC   635 _TIMIF_T4CH0IF	=	0x00dc
+                           0000DD   636 _TIMIF_5	=	0x00dd
+                           0000DD   637 _TIMIF_T4CH1IF	=	0x00dd
+                           0000DE   638 _TIMIF_6	=	0x00de
+                           0000DE   639 _TIMIF_T1OVFIM	=	0x00de
+                           0000DF   640 _TIMIF_7	=	0x00df
+                           0000E0   641 _ACC_0	=	0x00e0
+                           0000E1   642 _ACC_1	=	0x00e1
+                           0000E2   643 _ACC_2	=	0x00e2
+                           0000E3   644 _ACC_3	=	0x00e3
+                           0000E4   645 _ACC_4	=	0x00e4
+                           0000E5   646 _ACC_5	=	0x00e5
+                           0000E6   647 _ACC_6	=	0x00e6
+                           0000E7   648 _ACC_7	=	0x00e7
+                           0000E8   649 _IRCON2_0	=	0x00e8
+                           0000E8   650 _IRCON2_P2IF	=	0x00e8
+                           0000E9   651 _IRCON2_1	=	0x00e9
+                           0000E9   652 _IRCON2_UTX0IF	=	0x00e9
+                           0000EA   653 _IRCON2_2	=	0x00ea
+                           0000EA   654 _IRCON2_UTX1IF	=	0x00ea
+                           0000EB   655 _IRCON2_3	=	0x00eb
+                           0000EB   656 _IRCON2_P1IF	=	0x00eb
+                           0000EC   657 _IRCON2_4	=	0x00ec
+                           0000EC   658 _IRCON2_WDTIF	=	0x00ec
+                           0000ED   659 _IRCON2_5	=	0x00ed
+                           0000EE   660 _IRCON2_6	=	0x00ee
+                           0000EF   661 _IRCON2_7	=	0x00ef
+                           0000F0   662 _B_0	=	0x00f0
+                           0000F1   663 _B_1	=	0x00f1
+                           0000F2   664 _B_2	=	0x00f2
+                           0000F3   665 _B_3	=	0x00f3
+                           0000F4   666 _B_4	=	0x00f4
+                           0000F5   667 _B_5	=	0x00f5
+                           0000F6   668 _B_6	=	0x00f6
+                           0000F7   669 _B_7	=	0x00f7
+                           0000F8   670 _U1CSR_0	=	0x00f8
+                           0000F8   671 _U1CSR_ACTIVE	=	0x00f8
+                           0000F9   672 _U1CSR_1	=	0x00f9
+                           0000F9   673 _U1CSR_TX_BYTE	=	0x00f9
+                           0000FA   674 _U1CSR_2	=	0x00fa
+                           0000FA   675 _U1CSR_RX_BYTE	=	0x00fa
+                           0000FB   676 _U1CSR_3	=	0x00fb
+                           0000FB   677 _U1CSR_ERR	=	0x00fb
+                           0000FC   678 _U1CSR_4	=	0x00fc
+                           0000FC   679 _U1CSR_FE	=	0x00fc
+                           0000FD   680 _U1CSR_5	=	0x00fd
+                           0000FD   681 _U1CSR_SLAVE	=	0x00fd
+                           0000FE   682 _U1CSR_6	=	0x00fe
+                           0000FE   683 _U1CSR_RE	=	0x00fe
+                           0000FF   684 _U1CSR_7	=	0x00ff
+                           0000FF   685 _U1CSR_MODE	=	0x00ff
+                                    686 ;--------------------------------------------------------
+                                    687 ; overlayable register banks
+                                    688 ;--------------------------------------------------------
+                                    689 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        690 	.ds 8
+                                    691 ;--------------------------------------------------------
+                                    692 ; internal ram data
+                                    693 ;--------------------------------------------------------
+                                    694 	.area DSEG    (DATA)
+                                    695 ;--------------------------------------------------------
+                                    696 ; overlayable items in internal ram 
+                                    697 ;--------------------------------------------------------
+                                    698 ;--------------------------------------------------------
+                                    699 ; indirectly addressable internal ram data
+                                    700 ;--------------------------------------------------------
+                                    701 	.area ISEG    (DATA)
+                                    702 ;--------------------------------------------------------
+                                    703 ; absolute internal ram data
+                                    704 ;--------------------------------------------------------
+                                    705 	.area IABS    (ABS,DATA)
+                                    706 	.area IABS    (ABS,DATA)
+                                    707 ;--------------------------------------------------------
+                                    708 ; bit data
+                                    709 ;--------------------------------------------------------
+                                    710 	.area BSEG    (BIT)
+                                    711 ;--------------------------------------------------------
+                                    712 ; paged external ram data
+                                    713 ;--------------------------------------------------------
+                                    714 	.area PSEG    (PAG,XDATA)
+                                    715 ;--------------------------------------------------------
+                                    716 ; external ram data
+                                    717 ;--------------------------------------------------------
+                                    718 	.area XSEG    (XDATA)
+                           00618D   719 _RFSTAT	=	0x618d
+                           0061A9   720 _ATEST	=	0x61a9
+                           0061AD   721 _OPAMPMC	=	0x61ad
+                           0061AE   722 _RFC_OBS	=	0x61ae
+                           0061AF   723 _RFC_OBS_CTRL1	=	0x61af
+                           0061B0   724 _RFC_OBS_CTRL2	=	0x61b0
+                           006200   725 _USBADDR	=	0x6200
+                           006201   726 _USBPOW	=	0x6201
+                           006202   727 _USBIIF	=	0x6202
+                           006204   728 _USBOIF	=	0x6204
+                           006207   729 _USBIIE	=	0x6207
+                           006209   730 _USBOIE	=	0x6209
+                           00620B   731 _USBCIE	=	0x620b
+                           00620C   732 _USBFRML	=	0x620c
+                           00620D   733 _USBFRMH	=	0x620d
+                           00620E   734 _USBINDEX	=	0x620e
+                           00620F   735 _USBCTRL	=	0x620f
+                           006210   736 _USBMAXI	=	0x6210
+                           006211   737 _USBCS0	=	0x6211
+                           006211   738 _USBCSIL	=	0x6211
+                           006243   739 _OBSSEL0	=	0x6243
+                           006244   740 _OBSSEL1	=	0x6244
+                           006245   741 _OBSSEL2	=	0x6245
+                           006246   742 _OBSSEL3	=	0x6246
+                           006247   743 _OBSSEL4	=	0x6247
+                           006248   744 _OBSSEL5	=	0x6248
+                           006249   745 _CHVER	=	0x6249
+                           00624A   746 _CHIPID	=	0x624a
+                           00624B   747 _TR0	=	0x624b
+                           006260   748 _DBGDATA	=	0x6260
+                           006264   749 _BATTMON	=	0x6264
+                           006265   750 _IVCTRL	=	0x6265
+                           006270   751 _FCTL	=	0x6270
+                           006271   752 _FADDRL	=	0x6271
+                           006272   753 _FADDRH	=	0x6272
+                           006273   754 _FWDATA	=	0x6273
+                           006276   755 _CHIPINFO0	=	0x6276
+                           006277   756 _CHIPINFO1	=	0x6277
+                           006281   757 _IRCTL	=	0x6281
+                           006290   758 _CLD	=	0x6290
+                           0062A3   759 _T1CCTL3	=	0x62a3
+                           0062A4   760 _T1CCTL4	=	0x62a4
+                           0062AC   761 _T1CC3L	=	0x62ac
+                           0062AD   762 _T1CC3H	=	0x62ad
+                           0062AE   763 _T1CC4L	=	0x62ae
+                           0062AF   764 _T1CC4H	=	0x62af
+                           0062B0   765 _STCC	=	0x62b0
+                           0062B1   766 _STCS	=	0x62b1
+                           0062B2   767 _STCV0	=	0x62b2
+                           0062B3   768 _STCV1	=	0x62b3
+                           0062B4   769 _STCV2	=	0x62b4
+                           0062C0   770 _OPAMPC	=	0x62c0
+                           0062C1   771 _OPAMPS	=	0x62c1
+                           0062D0   772 _CMPCTL	=	0x62d0
+                           000EA2   773 _buf	=	0x0ea2
+                           000EA6   774 _fer	=	0x0ea6
+                           000C95   775 _accelEnabler	=	0x0c95
+                           000FBD   776 _simpleBLEPeripheral_TaskID	=	0x0fbd
+                           0017DD   777 _attDeviceName	=	0x17dd
+                           000C96   778 _timeEnabler	=	0x0c96
+                                    779 ;--------------------------------------------------------
+                                    780 ; absolute external ram data
+                                    781 ;--------------------------------------------------------
+                                    782 	.area XABS    (ABS,XDATA)
+                                    783 ;--------------------------------------------------------
+                                    784 ; external initialized ram data
+                                    785 ;--------------------------------------------------------
+                                    786 	.area XISEG   (XDATA)
+                                    787 	.area HOME    (CODE)
+                                    788 	.area GSINIT0 (CODE)
+                                    789 	.area GSINIT1 (CODE)
+                                    790 	.area GSINIT2 (CODE)
+                                    791 	.area GSINIT3 (CODE)
+                                    792 	.area GSINIT4 (CODE)
+                                    793 	.area GSINIT5 (CODE)
+                                    794 	.area GSINIT  (CODE)
+                                    795 	.area GSFINAL (CODE)
+                                    796 	.area CSEG    (CODE)
+                                    797 ;--------------------------------------------------------
+                                    798 ; global & static initialisations
+                                    799 ;--------------------------------------------------------
+                                    800 	.area HOME    (CODE)
+                                    801 	.area GSINIT  (CODE)
+                                    802 	.area GSFINAL (CODE)
+                                    803 	.area GSINIT  (CODE)
+                                    804 ;--------------------------------------------------------
+                                    805 ; Home
+                                    806 ;--------------------------------------------------------
+                                    807 	.area HOME    (CODE)
+                                    808 	.area HOME    (CODE)
+                                    809 ;--------------------------------------------------------
+                                    810 ; code
+                                    811 ;--------------------------------------------------------
+                                    812 	.area CSEG    (CODE)
+                                    813 ;------------------------------------------------------------
+                                    814 ;Allocation info for local variables in function 'cg_simpleProfileChangeCB'
+                                    815 ;------------------------------------------------------------
+                                    816 ;paramID                   Allocated to registers r7 
+                                    817 ;------------------------------------------------------------
+                                    818 ;	../CodeGeneratorCallBacks.c:79: void cg_simpleProfileChangeCB( uint8 paramID )
+                                    819 ;	-----------------------------------------
+                                    820 ;	 function cg_simpleProfileChangeCB
+                                    821 ;	-----------------------------------------
+      000000                        822 _cg_simpleProfileChangeCB:
+                           000007   823 	ar7 = 0x07
+                           000006   824 	ar6 = 0x06
+                           000005   825 	ar5 = 0x05
+                           000004   826 	ar4 = 0x04
+                           000003   827 	ar3 = 0x03
+                           000002   828 	ar2 = 0x02
+                           000001   829 	ar1 = 0x01
+                           000000   830 	ar0 = 0x00
+      000000 AF 82            [24]  831 	mov	r7,dpl
+                                    832 ;	../CodeGeneratorCallBacks.c:82: switch( paramID )
+      000002 BF 00 02         [24]  833 	cjne	r7,#0x00,00113$
+      000005 80 05            [24]  834 	sjmp	00101$
+      000007                        835 00113$:
+                                    836 ;	../CodeGeneratorCallBacks.c:84: case SIMPLEPROFILE_CHAR1:
+      000007 BF 02 27         [24]  837 	cjne	r7,#0x02,00105$
+      00000A 80 13            [24]  838 	sjmp	00102$
+      00000C                        839 00101$:
+                                    840 ;	../CodeGeneratorCallBacks.c:85: SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR1, buf );
+      00000C 74 A2            [12]  841 	mov	a,#_buf
+      00000E C0 E0            [24]  842 	push	acc
+      000010 74 0E            [12]  843 	mov	a,#(_buf >> 8)
+      000012 C0 E0            [24]  844 	push	acc
+      000014 75 82 00         [24]  845 	mov	dpl,#0x00
+      000017 12r00r00         [24]  846 	lcall	_SimpleProfile_GetParameter
+      00001A 15 81            [12]  847 	dec	sp
+      00001C 15 81            [12]  848 	dec	sp
+                                    849 ;	../CodeGeneratorCallBacks.c:86: break;
+                                    850 ;	../CodeGeneratorCallBacks.c:88: case SIMPLEPROFILE_CHAR3:
+      00001E 22               [24]  851 	ret
+      00001F                        852 00102$:
+                                    853 ;	../CodeGeneratorCallBacks.c:89: SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR3, buf );
+      00001F 74 A2            [12]  854 	mov	a,#_buf
+      000021 C0 E0            [24]  855 	push	acc
+      000023 74 0E            [12]  856 	mov	a,#(_buf >> 8)
+      000025 C0 E0            [24]  857 	push	acc
+      000027 75 82 02         [24]  858 	mov	dpl,#0x02
+      00002A 12r00r00         [24]  859 	lcall	_SimpleProfile_GetParameter
+      00002D 15 81            [12]  860 	dec	sp
+      00002F 15 81            [12]  861 	dec	sp
+                                    862 ;	../CodeGeneratorCallBacks.c:95: }
+      000031                        863 00105$:
+      000031 22               [24]  864 	ret
+                                    865 ;------------------------------------------------------------
+                                    866 ;Allocation info for local variables in function 'cg_accelEnablerChangeCB'
+                                    867 ;------------------------------------------------------------
+                                    868 ;status                    Allocated to registers r7 
+                                    869 ;------------------------------------------------------------
+                                    870 ;	../CodeGeneratorCallBacks.c:109: void cg_accelEnablerChangeCB( void )
+                                    871 ;	-----------------------------------------
+                                    872 ;	 function cg_accelEnablerChangeCB
+                                    873 ;	-----------------------------------------
+      000032                        874 _cg_accelEnablerChangeCB:
+                                    875 ;	../CodeGeneratorCallBacks.c:112: status = Accel_GetParameter( ACCEL_ENABLER, &accelEnabler );
+      000032 74 95            [12]  876 	mov	a,#_accelEnabler
+      000034 C0 E0            [24]  877 	push	acc
+      000036 74 0C            [12]  878 	mov	a,#(_accelEnabler >> 8)
+      000038 C0 E0            [24]  879 	push	acc
+      00003A 75 82 00         [24]  880 	mov	dpl,#0x00
+      00003D 12r00r00         [24]  881 	lcall	_Accel_GetParameter
+      000040 AF 82            [24]  882 	mov	r7,dpl
+      000042 15 81            [12]  883 	dec	sp
+      000044 15 81            [12]  884 	dec	sp
+                                    885 ;	../CodeGeneratorCallBacks.c:114: if (status == SUCCESS){
+      000046 EF               [12]  886 	mov	a,r7
+      000047 70 44            [24]  887 	jnz	00106$
+                                    888 ;	../CodeGeneratorCallBacks.c:115: if (accelEnabler){
+      000049 90 0C 95         [24]  889 	mov	dptr,#_accelEnabler
+      00004C E0               [24]  890 	movx	a,@dptr
+      00004D FF               [12]  891 	mov	r7,a
+      00004E 60 28            [24]  892 	jz	00102$
+                                    893 ;	../CodeGeneratorCallBacks.c:117: accInit();
+      000050 12r00r00         [24]  894 	lcall	_accInit
+                                    895 ;	../CodeGeneratorCallBacks.c:120: osal_start_timerEx( simpleBLEPeripheral_TaskID, ACCEL_READ_EVT, ACCEL_READ_PERIOD );
+      000053 90 0F BD         [24]  896 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      000056 E0               [24]  897 	movx	a,@dptr
+      000057 FF               [12]  898 	mov	r7,a
+      000058 74 F4            [12]  899 	mov	a,#0xF4
+      00005A C0 E0            [24]  900 	push	acc
+      00005C 74 01            [12]  901 	mov	a,#0x01
+      00005E C0 E0            [24]  902 	push	acc
+      000060 E4               [12]  903 	clr	a
+      000061 C0 E0            [24]  904 	push	acc
+      000063 C0 E0            [24]  905 	push	acc
+      000065 74 20            [12]  906 	mov	a,#0x20
+      000067 C0 E0            [24]  907 	push	acc
+      000069 E4               [12]  908 	clr	a
+      00006A C0 E0            [24]  909 	push	acc
+      00006C 8F 82            [24]  910 	mov	dpl,r7
+      00006E 12r00r00         [24]  911 	lcall	_osal_start_timerEx
+      000071 E5 81            [12]  912 	mov	a,sp
+      000073 24 FA            [12]  913 	add	a,#0xfa
+      000075 F5 81            [12]  914 	mov	sp,a
+      000077 22               [24]  915 	ret
+      000078                        916 00102$:
+                                    917 ;	../CodeGeneratorCallBacks.c:123: osal_stop_timerEx( simpleBLEPeripheral_TaskID, ACCEL_READ_EVT);
+      000078 90 0F BD         [24]  918 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      00007B E0               [24]  919 	movx	a,@dptr
+      00007C FF               [12]  920 	mov	r7,a
+      00007D 74 20            [12]  921 	mov	a,#0x20
+      00007F C0 E0            [24]  922 	push	acc
+      000081 E4               [12]  923 	clr	a
+      000082 C0 E0            [24]  924 	push	acc
+      000084 8F 82            [24]  925 	mov	dpl,r7
+      000086 12r00r00         [24]  926 	lcall	_osal_stop_timerEx
+      000089 15 81            [12]  927 	dec	sp
+      00008B 15 81            [12]  928 	dec	sp
+      00008D                        929 00106$:
+      00008D 22               [24]  930 	ret
+                                    931 ;------------------------------------------------------------
+                                    932 ;Allocation info for local variables in function 'cg_battProfileChangeCB'
+                                    933 ;------------------------------------------------------------
+                                    934 ;event                     Allocated to registers 
+                                    935 ;------------------------------------------------------------
+                                    936 ;	../CodeGeneratorCallBacks.c:139: void cg_battProfileChangeCB( uint8 event )
+                                    937 ;	-----------------------------------------
+                                    938 ;	 function cg_battProfileChangeCB
+                                    939 ;	-----------------------------------------
+      00008E                        940 _cg_battProfileChangeCB:
+                                    941 ;	../CodeGeneratorCallBacks.c:148: }
+      00008E 22               [24]  942 	ret
+                                    943 ;------------------------------------------------------------
+                                    944 ;Allocation info for local variables in function 'cg_EVT_1_CB'
+                                    945 ;------------------------------------------------------------
+                                    946 ;	../CodeGeneratorCallBacks.c:151: void cg_EVT_1_CB( void )
+                                    947 ;	-----------------------------------------
+                                    948 ;	 function cg_EVT_1_CB
+                                    949 ;	-----------------------------------------
+      00008F                        950 _cg_EVT_1_CB:
+                                    951 ;	../CodeGeneratorCallBacks.c:153: P2_2 ^= 1;
+      00008F B2 A2            [12]  952 	cpl	_P2_2
+                                    953 ;	../CodeGeneratorCallBacks.c:154: osal_start_timerEx( simpleBLEPeripheral_TaskID, CODEGENERATOR_EVT_1, 500 );
+      000091 90 0F BD         [24]  954 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      000094 E0               [24]  955 	movx	a,@dptr
+      000095 FF               [12]  956 	mov	r7,a
+      000096 74 F4            [12]  957 	mov	a,#0xF4
+      000098 C0 E0            [24]  958 	push	acc
+      00009A 74 01            [12]  959 	mov	a,#0x01
+      00009C C0 E0            [24]  960 	push	acc
+      00009E E4               [12]  961 	clr	a
+      00009F C0 E0            [24]  962 	push	acc
+      0000A1 C0 E0            [24]  963 	push	acc
+      0000A3 C0 E0            [24]  964 	push	acc
+      0000A5 74 08            [12]  965 	mov	a,#0x08
+      0000A7 C0 E0            [24]  966 	push	acc
+      0000A9 8F 82            [24]  967 	mov	dpl,r7
+      0000AB 12r00r00         [24]  968 	lcall	_osal_start_timerEx
+      0000AE E5 81            [12]  969 	mov	a,sp
+      0000B0 24 FA            [12]  970 	add	a,#0xfa
+      0000B2 F5 81            [12]  971 	mov	sp,a
+      0000B4 22               [24]  972 	ret
+                                    973 ;------------------------------------------------------------
+                                    974 ;Allocation info for local variables in function 'cg_EVT_2_CB'
+                                    975 ;------------------------------------------------------------
+                                    976 ;	../CodeGeneratorCallBacks.c:158: void cg_EVT_2_CB( void )
+                                    977 ;	-----------------------------------------
+                                    978 ;	 function cg_EVT_2_CB
+                                    979 ;	-----------------------------------------
+      0000B5                        980 _cg_EVT_2_CB:
+                                    981 ;	../CodeGeneratorCallBacks.c:161: osal_start_timerEx( simpleBLEPeripheral_TaskID, CODEGENERATOR_EVT_2, 200 );
+      0000B5 90 0F BD         [24]  982 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      0000B8 E0               [24]  983 	movx	a,@dptr
+      0000B9 FF               [12]  984 	mov	r7,a
+      0000BA 74 C8            [12]  985 	mov	a,#0xC8
+      0000BC C0 E0            [24]  986 	push	acc
+      0000BE E4               [12]  987 	clr	a
+      0000BF C0 E0            [24]  988 	push	acc
+      0000C1 C0 E0            [24]  989 	push	acc
+      0000C3 C0 E0            [24]  990 	push	acc
+      0000C5 C0 E0            [24]  991 	push	acc
+      0000C7 74 10            [12]  992 	mov	a,#0x10
+      0000C9 C0 E0            [24]  993 	push	acc
+      0000CB 8F 82            [24]  994 	mov	dpl,r7
+      0000CD 12r00r00         [24]  995 	lcall	_osal_start_timerEx
+      0000D0 E5 81            [12]  996 	mov	a,sp
+      0000D2 24 FA            [12]  997 	add	a,#0xfa
+      0000D4 F5 81            [12]  998 	mov	sp,a
+      0000D6 22               [24]  999 	ret
+                                   1000 ;------------------------------------------------------------
+                                   1001 ;Allocation info for local variables in function 'cg_EVT_3_CB'
+                                   1002 ;------------------------------------------------------------
+                                   1003 ;	../CodeGeneratorCallBacks.c:164: void cg_EVT_3_CB( void )
+                                   1004 ;	-----------------------------------------
+                                   1005 ;	 function cg_EVT_3_CB
+                                   1006 ;	-----------------------------------------
+      0000D7                       1007 _cg_EVT_3_CB:
+                                   1008 ;	../CodeGeneratorCallBacks.c:167: }
+      0000D7 22               [24] 1009 	ret
+                                   1010 ;------------------------------------------------------------
+                                   1011 ;Allocation info for local variables in function 'cg_EVT_4_CB'
+                                   1012 ;------------------------------------------------------------
+                                   1013 ;	../CodeGeneratorCallBacks.c:169: void cg_EVT_4_CB( void )
+                                   1014 ;	-----------------------------------------
+                                   1015 ;	 function cg_EVT_4_CB
+                                   1016 ;	-----------------------------------------
+      0000D8                       1017 _cg_EVT_4_CB:
+                                   1018 ;	../CodeGeneratorCallBacks.c:172: }
+      0000D8 22               [24] 1019 	ret
+                                   1020 ;------------------------------------------------------------
+                                   1021 ;Allocation info for local variables in function 'cg_timeserviceChangeCB'
+                                   1022 ;------------------------------------------------------------
+                                   1023 ;paramID                   Allocated to registers r7 
+                                   1024 ;status                    Allocated to registers r7 
+                                   1025 ;------------------------------------------------------------
+                                   1026 ;	../CodeGeneratorCallBacks.c:184: void cg_timeserviceChangeCB( uint8 paramID )
+                                   1027 ;	-----------------------------------------
+                                   1028 ;	 function cg_timeserviceChangeCB
+                                   1029 ;	-----------------------------------------
+      0000D9                       1030 _cg_timeserviceChangeCB:
+                                   1031 ;	../CodeGeneratorCallBacks.c:188: switch( paramID ){
+      0000D9 E5 82            [12] 1032 	mov	a,dpl
+      0000DB FF               [12] 1033 	mov	r7,a
+      0000DC 24 FC            [12] 1034 	add	a,#0xff - 0x03
+      0000DE 50 01            [24] 1035 	jnc	00122$
+      0000E0 22               [24] 1036 	ret
+      0000E1                       1037 00122$:
+      0000E1 EF               [12] 1038 	mov	a,r7
+      0000E2 2F               [12] 1039 	add	a,r7
+      0000E3 2F               [12] 1040 	add	a,r7
+      0000E4 90r00rE8         [24] 1041 	mov	dptr,#00123$
+      0000E7 73               [24] 1042 	jmp	@a+dptr
+      0000E8                       1043 00123$:
+      0000E8 02r00rF4         [24] 1044 	ljmp	00101$
+      0000EB 02r01r9E         [24] 1045 	ljmp	00107$
+      0000EE 02r01rD8         [24] 1046 	ljmp	00108$
+      0000F1 02r02r10         [24] 1047 	ljmp	00109$
+                                   1048 ;	../CodeGeneratorCallBacks.c:189: case TIME_ENABLER:
+      0000F4                       1049 00101$:
+                                   1050 ;	../CodeGeneratorCallBacks.c:190: status = timeservice_GetParameter( TIME_ENABLER, &timeEnabler );
+      0000F4 74 96            [12] 1051 	mov	a,#_timeEnabler
+      0000F6 C0 E0            [24] 1052 	push	acc
+      0000F8 74 0C            [12] 1053 	mov	a,#(_timeEnabler >> 8)
+      0000FA C0 E0            [24] 1054 	push	acc
+      0000FC 75 82 00         [24] 1055 	mov	dpl,#0x00
+      0000FF 12r00r00         [24] 1056 	lcall	_timeservice_GetParameter
+      000102 AF 82            [24] 1057 	mov	r7,dpl
+      000104 15 81            [12] 1058 	dec	sp
+      000106 15 81            [12] 1059 	dec	sp
+                                   1060 ;	../CodeGeneratorCallBacks.c:191: if (status == SUCCESS){
+      000108 EF               [12] 1061 	mov	a,r7
+      000109 60 01            [24] 1062 	jz	00124$
+      00010B 22               [24] 1063 	ret
+      00010C                       1064 00124$:
+                                   1065 ;	../CodeGeneratorCallBacks.c:192: if (timeEnabler){
+      00010C 90 0C 96         [24] 1066 	mov	dptr,#_timeEnabler
+      00010F E0               [24] 1067 	movx	a,@dptr
+      000110 FF               [12] 1068 	mov	r7,a
+      000111 60 75            [24] 1069 	jz	00103$
+                                   1070 ;	../CodeGeneratorCallBacks.c:194: rtcInit();
+      000113 12r00r00         [24] 1071 	lcall	_rtcInit
+                                   1072 ;	../CodeGeneratorCallBacks.c:197: rtcSetAlarm( 0x03, 0x17, 0x16, 0x23, 0x03, 0x01 );
+      000116 74 01            [12] 1073 	mov	a,#0x01
+      000118 C0 E0            [24] 1074 	push	acc
+      00011A 74 03            [12] 1075 	mov	a,#0x03
+      00011C C0 E0            [24] 1076 	push	acc
+      00011E 74 23            [12] 1077 	mov	a,#0x23
+      000120 C0 E0            [24] 1078 	push	acc
+      000122 74 16            [12] 1079 	mov	a,#0x16
+      000124 C0 E0            [24] 1080 	push	acc
+      000126 04               [12] 1081 	inc	a
+      000127 C0 E0            [24] 1082 	push	acc
+      000129 75 82 03         [24] 1083 	mov	dpl,#0x03
+      00012C 12r00r00         [24] 1084 	lcall	_rtcSetAlarm
+      00012F E5 81            [12] 1085 	mov	a,sp
+      000131 24 FB            [12] 1086 	add	a,#0xfb
+      000133 F5 81            [12] 1087 	mov	sp,a
+                                   1088 ;	../CodeGeneratorCallBacks.c:198: rtcSetTime(0x00, 0x23, 0x16 ); /* uint8 second,uint8 minute, uint8 hour */
+      000135 74 16            [12] 1089 	mov	a,#0x16
+      000137 C0 E0            [24] 1090 	push	acc
+      000139 74 23            [12] 1091 	mov	a,#0x23
+      00013B C0 E0            [24] 1092 	push	acc
+      00013D 75 82 00         [24] 1093 	mov	dpl,#0x00
+      000140 12r00r00         [24] 1094 	lcall	_rtcSetTime
+      000143 15 81            [12] 1095 	dec	sp
+      000145 15 81            [12] 1096 	dec	sp
+                                   1097 ;	../CodeGeneratorCallBacks.c:199: rtcSetDate(0x01, 0x17, 0x03, 0x14, 0x03); /* uint8 day, uint8 date, uint8 month, uint8 year, uint8 century */
+      000147 74 03            [12] 1098 	mov	a,#0x03
+      000149 C0 E0            [24] 1099 	push	acc
+      00014B 74 14            [12] 1100 	mov	a,#0x14
+      00014D C0 E0            [24] 1101 	push	acc
+      00014F 74 03            [12] 1102 	mov	a,#0x03
+      000151 C0 E0            [24] 1103 	push	acc
+      000153 74 17            [12] 1104 	mov	a,#0x17
+      000155 C0 E0            [24] 1105 	push	acc
+      000157 75 82 01         [24] 1106 	mov	dpl,#0x01
+      00015A 12r00r00         [24] 1107 	lcall	_rtcSetDate
+      00015D E5 81            [12] 1108 	mov	a,sp
+      00015F 24 FC            [12] 1109 	add	a,#0xfc
+      000161 F5 81            [12] 1110 	mov	sp,a
+                                   1111 ;	../CodeGeneratorCallBacks.c:201: osal_start_timerEx( simpleBLEPeripheral_TaskID, TIME_READ_EVT, TIME_READ_PERIOD );
+      000163 90 0F BD         [24] 1112 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      000166 E0               [24] 1113 	movx	a,@dptr
+      000167 FF               [12] 1114 	mov	r7,a
+      000168 74 E8            [12] 1115 	mov	a,#0xE8
+      00016A C0 E0            [24] 1116 	push	acc
+      00016C 74 03            [12] 1117 	mov	a,#0x03
+      00016E C0 E0            [24] 1118 	push	acc
+      000170 E4               [12] 1119 	clr	a
+      000171 C0 E0            [24] 1120 	push	acc
+      000173 C0 E0            [24] 1121 	push	acc
+      000175 74 40            [12] 1122 	mov	a,#0x40
+      000177 C0 E0            [24] 1123 	push	acc
+      000179 E4               [12] 1124 	clr	a
+      00017A C0 E0            [24] 1125 	push	acc
+      00017C 8F 82            [24] 1126 	mov	dpl,r7
+      00017E 12r00r00         [24] 1127 	lcall	_osal_start_timerEx
+      000181 E5 81            [12] 1128 	mov	a,sp
+      000183 24 FA            [12] 1129 	add	a,#0xfa
+      000185 F5 81            [12] 1130 	mov	sp,a
+      000187 22               [24] 1131 	ret
+      000188                       1132 00103$:
+                                   1133 ;	../CodeGeneratorCallBacks.c:204: osal_stop_timerEx( simpleBLEPeripheral_TaskID, TIME_READ_EVT);
+      000188 90 0F BD         [24] 1134 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      00018B E0               [24] 1135 	movx	a,@dptr
+      00018C FF               [12] 1136 	mov	r7,a
+      00018D 74 40            [12] 1137 	mov	a,#0x40
+      00018F C0 E0            [24] 1138 	push	acc
+      000191 E4               [12] 1139 	clr	a
+      000192 C0 E0            [24] 1140 	push	acc
+      000194 8F 82            [24] 1141 	mov	dpl,r7
+      000196 12r00r00         [24] 1142 	lcall	_osal_stop_timerEx
+      000199 15 81            [12] 1143 	dec	sp
+      00019B 15 81            [12] 1144 	dec	sp
+                                   1145 ;	../CodeGeneratorCallBacks.c:209: break;
+      00019D 22               [24] 1146 	ret
+                                   1147 ;	../CodeGeneratorCallBacks.c:211: case TIME:
+      00019E                       1148 00107$:
+                                   1149 ;	../CodeGeneratorCallBacks.c:212: osal_stop_timerEx( simpleBLEPeripheral_TaskID, TIME_READ_EVT);
+      00019E 90 0F BD         [24] 1150 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      0001A1 E0               [24] 1151 	movx	a,@dptr
+      0001A2 FF               [12] 1152 	mov	r7,a
+      0001A3 74 40            [12] 1153 	mov	a,#0x40
+      0001A5 C0 E0            [24] 1154 	push	acc
+      0001A7 E4               [12] 1155 	clr	a
+      0001A8 C0 E0            [24] 1156 	push	acc
+      0001AA 8F 82            [24] 1157 	mov	dpl,r7
+      0001AC 12r00r00         [24] 1158 	lcall	_osal_stop_timerEx
+      0001AF 15 81            [12] 1159 	dec	sp
+      0001B1 15 81            [12] 1160 	dec	sp
+                                   1161 ;	../CodeGeneratorCallBacks.c:213: osal_start_timerEx( simpleBLEPeripheral_TaskID, SET_TIME_EVT, 500 );
+      0001B3 90 0F BD         [24] 1162 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      0001B6 E0               [24] 1163 	movx	a,@dptr
+      0001B7 FF               [12] 1164 	mov	r7,a
+      0001B8 74 F4            [12] 1165 	mov	a,#0xF4
+      0001BA C0 E0            [24] 1166 	push	acc
+      0001BC 74 01            [12] 1167 	mov	a,#0x01
+      0001BE C0 E0            [24] 1168 	push	acc
+      0001C0 E4               [12] 1169 	clr	a
+      0001C1 C0 E0            [24] 1170 	push	acc
+      0001C3 C0 E0            [24] 1171 	push	acc
+      0001C5 74 80            [12] 1172 	mov	a,#0x80
+      0001C7 C0 E0            [24] 1173 	push	acc
+      0001C9 E4               [12] 1174 	clr	a
+      0001CA C0 E0            [24] 1175 	push	acc
+      0001CC 8F 82            [24] 1176 	mov	dpl,r7
+      0001CE 12r00r00         [24] 1177 	lcall	_osal_start_timerEx
+      0001D1 E5 81            [12] 1178 	mov	a,sp
+      0001D3 24 FA            [12] 1179 	add	a,#0xfa
+      0001D5 F5 81            [12] 1180 	mov	sp,a
+                                   1181 ;	../CodeGeneratorCallBacks.c:214: break;
+                                   1182 ;	../CodeGeneratorCallBacks.c:216: case DATE:
+      0001D7 22               [24] 1183 	ret
+      0001D8                       1184 00108$:
+                                   1185 ;	../CodeGeneratorCallBacks.c:217: osal_stop_timerEx( simpleBLEPeripheral_TaskID, TIME_READ_EVT);
+      0001D8 90 0F BD         [24] 1186 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      0001DB E0               [24] 1187 	movx	a,@dptr
+      0001DC FF               [12] 1188 	mov	r7,a
+      0001DD 74 40            [12] 1189 	mov	a,#0x40
+      0001DF C0 E0            [24] 1190 	push	acc
+      0001E1 E4               [12] 1191 	clr	a
+      0001E2 C0 E0            [24] 1192 	push	acc
+      0001E4 8F 82            [24] 1193 	mov	dpl,r7
+      0001E6 12r00r00         [24] 1194 	lcall	_osal_stop_timerEx
+      0001E9 15 81            [12] 1195 	dec	sp
+      0001EB 15 81            [12] 1196 	dec	sp
+                                   1197 ;	../CodeGeneratorCallBacks.c:218: osal_start_timerEx( simpleBLEPeripheral_TaskID, SET_DATE_EVT, 500 );
+      0001ED 90 0F BD         [24] 1198 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      0001F0 E0               [24] 1199 	movx	a,@dptr
+      0001F1 FF               [12] 1200 	mov	r7,a
+      0001F2 74 F4            [12] 1201 	mov	a,#0xF4
+      0001F4 C0 E0            [24] 1202 	push	acc
+      0001F6 74 01            [12] 1203 	mov	a,#0x01
+      0001F8 C0 E0            [24] 1204 	push	acc
+      0001FA E4               [12] 1205 	clr	a
+      0001FB C0 E0            [24] 1206 	push	acc
+      0001FD C0 E0            [24] 1207 	push	acc
+      0001FF C0 E0            [24] 1208 	push	acc
+      000201 04               [12] 1209 	inc	a
+      000202 C0 E0            [24] 1210 	push	acc
+      000204 8F 82            [24] 1211 	mov	dpl,r7
+      000206 12r00r00         [24] 1212 	lcall	_osal_start_timerEx
+      000209 E5 81            [12] 1213 	mov	a,sp
+      00020B 24 FA            [12] 1214 	add	a,#0xfa
+      00020D F5 81            [12] 1215 	mov	sp,a
+                                   1216 ;	../CodeGeneratorCallBacks.c:219: break;
+                                   1217 ;	../CodeGeneratorCallBacks.c:221: case ALARM:
+      00020F 22               [24] 1218 	ret
+      000210                       1219 00109$:
+                                   1220 ;	../CodeGeneratorCallBacks.c:222: osal_stop_timerEx( simpleBLEPeripheral_TaskID, TIME_READ_EVT);
+      000210 90 0F BD         [24] 1221 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      000213 E0               [24] 1222 	movx	a,@dptr
+      000214 FF               [12] 1223 	mov	r7,a
+      000215 74 40            [12] 1224 	mov	a,#0x40
+      000217 C0 E0            [24] 1225 	push	acc
+      000219 E4               [12] 1226 	clr	a
+      00021A C0 E0            [24] 1227 	push	acc
+      00021C 8F 82            [24] 1228 	mov	dpl,r7
+      00021E 12r00r00         [24] 1229 	lcall	_osal_stop_timerEx
+      000221 15 81            [12] 1230 	dec	sp
+      000223 15 81            [12] 1231 	dec	sp
+                                   1232 ;	../CodeGeneratorCallBacks.c:223: osal_start_timerEx( simpleBLEPeripheral_TaskID, SET_ALARM_EVT, 500 );
+      000225 90 0F BD         [24] 1233 	mov	dptr,#_simpleBLEPeripheral_TaskID
+      000228 E0               [24] 1234 	movx	a,@dptr
+      000229 FF               [12] 1235 	mov	r7,a
+      00022A 74 F4            [12] 1236 	mov	a,#0xF4
+      00022C C0 E0            [24] 1237 	push	acc
+      00022E 74 01            [12] 1238 	mov	a,#0x01
+      000230 C0 E0            [24] 1239 	push	acc
+      000232 E4               [12] 1240 	clr	a
+      000233 C0 E0            [24] 1241 	push	acc
+      000235 C0 E0            [24] 1242 	push	acc
+      000237 C0 E0            [24] 1243 	push	acc
+      000239 74 02            [12] 1244 	mov	a,#0x02
+      00023B C0 E0            [24] 1245 	push	acc
+      00023D 8F 82            [24] 1246 	mov	dpl,r7
+      00023F 12r00r00         [24] 1247 	lcall	_osal_start_timerEx
+      000242 E5 81            [12] 1248 	mov	a,sp
+      000244 24 FA            [12] 1249 	add	a,#0xfa
+      000246 F5 81            [12] 1250 	mov	sp,a
+                                   1251 ;	../CodeGeneratorCallBacks.c:225: }
+      000248 22               [24] 1252 	ret
+                                   1253 	.area CSEG    (CODE)
+                                   1254 	.area CONST   (CODE)
+                                   1255 	.area XINIT   (CODE)
+                                   1256 	.area CABS    (ABS,CODE)

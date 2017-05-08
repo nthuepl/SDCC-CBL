@@ -1,0 +1,588 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CABS                                00000000    00000000 =           0. bytes (ABS,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000000  l_BIT_BANK                      
+C:   00000000  l_BSEG                          
+C:   00000000  l_BSEG_BYTES                    
+C:   00000000  l_CABS                          
+C:   00000000  l_GSFINAL                       
+C:   00000000  l_GSINIT                        
+C:   00000000  l_GSINIT0                       
+C:   00000000  l_GSINIT1                       
+C:   00000000  l_GSINIT2                       
+C:   00000000  l_GSINIT3                       
+C:   00000000  l_GSINIT4                       
+C:   00000000  l_GSINIT5                       
+C:   00000000  l_HOME                          
+C:   00000000  l_IABS                          
+C:   00000000  l_ISEG                          
+C:   00000000  l_OSEG                          
+C:   00000000  l_PSEG                          
+C:   00000000  l_REG_BANK_1                    
+C:   00000000  l_REG_BANK_2                    
+C:   00000000  l_REG_BANK_3                    
+C:   00000000  l_RSEG                          
+C:   00000000  l_RSEG0                         
+C:   00000000  l_RSEG1                         
+C:   00000000  l_SSEG                          
+C:   00000000  l_XABS                          
+C:   00000000  l_XINIT                         
+C:   00000000  l_XISEG                         
+C:   00000000  l_XSEG                          
+C:   00000000  l__CODE                         
+C:   00000000  s_BSEG                          
+C:   00000000  s_CABS                          
+C:   00000000  s_DSEG                          
+C:   00000000  s_IABS                          
+C:   00000000  s_ISEG                          
+C:   00000000  s_REG_BANK_0                    
+C:   00000000  s_RSEG                          
+C:   00000000  s_RSEG0                         
+C:   00000000  s_RSEG1                         
+C:   00000000  s_XABS                          
+C:   00000008  l_REG_BANK_0                    
+C:   00000008  s_REG_BANK_1                    
+C:   00000009  l_DSEG                          
+C:   0000000F  l_CONST                         
+C:   00000010  s_REG_BANK_2                    
+C:   00000018  s_BIT_BANK                      
+C:   00000018  s_OSEG                          
+C:   00000018  s_REG_BANK_3                    
+C:   00000020  s_BSEG_BYTES                    
+C:   00000020  s__CODE                         
+C:   00000080  s_SSEG                          
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CABS                                00000000    00000000 =           0. bytes (ABS,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000100  l_IRAM                          
+C:   00000198  l_CSEG                          
+C:   00000EBD  s_PSEG                          
+C:   00000EBD  s_XISEG                         
+C:   00000EBD  s_XSEG                          
+C:   0000A000  s_CSEG                          
+C:   0000A000  s_GSFINAL                       
+C:   0000A000  s_GSINIT                        
+C:   0000A000  s_GSINIT0                       
+C:   0000A000  s_GSINIT1                       
+C:   0000A000  s_GSINIT2                       
+C:   0000A000  s_GSINIT3                       
+C:   0000A000  s_GSINIT4                       
+C:   0000A000  s_GSINIT5                       
+C:   0000A000  s_HOME                          
+C:   0000A198  s_CONST                         
+C:   0000A1A7  s_XINIT                         
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           _bp
+     00000080  _P0                                CodeGeneratorMain
+     00000080  _P0_0                              CodeGeneratorMain
+     00000081  _P0_1                              CodeGeneratorMain
+     00000081  _SP                                CodeGeneratorMain
+     00000082  _DPL0                              CodeGeneratorMain
+     00000082  _P0_2                              CodeGeneratorMain
+     00000083  _DPH0                              CodeGeneratorMain
+     00000083  _P0_3                              CodeGeneratorMain
+     00000084  _DPL1                              CodeGeneratorMain
+     00000084  _P0_4                              CodeGeneratorMain
+     00000085  _DPH1                              CodeGeneratorMain
+     00000085  _P0_5                              CodeGeneratorMain
+     00000086  _P0_6                              CodeGeneratorMain
+     00000086  _U0CSR                             CodeGeneratorMain
+     00000087  _P0_7                              CodeGeneratorMain
+     00000087  _PCON                              CodeGeneratorMain
+     00000088  _TCON                              CodeGeneratorMain
+     00000088  _TCON_0                            CodeGeneratorMain
+     00000088  _TCON_IT0                          CodeGeneratorMain
+     00000089  _P0IFG                             CodeGeneratorMain
+     00000089  _TCON_1                            CodeGeneratorMain
+     00000089  _TCON_RFERRIF                      CodeGeneratorMain
+     0000008A  _P1IFG                             CodeGeneratorMain
+     0000008A  _TCON_2                            CodeGeneratorMain
+     0000008A  _TCON_IT1                          CodeGeneratorMain
+     0000008B  _P2IFG                             CodeGeneratorMain
+     0000008B  _TCON_3                            CodeGeneratorMain
+     0000008B  _TCON_URX0IF                       CodeGeneratorMain
+     0000008C  _PICTL                             CodeGeneratorMain
+     0000008C  _TCON_4                            CodeGeneratorMain
+     0000008D  _P1IEN                             CodeGeneratorMain
+     0000008D  _TCON_5                            CodeGeneratorMain
+     0000008D  _TCON_ADCIF                        CodeGeneratorMain
+     0000008E  _TCON_6                            CodeGeneratorMain
+     0000008F  _P0INP                             CodeGeneratorMain
+     0000008F  _TCON_7                            CodeGeneratorMain
+     0000008F  _TCON_URX1IF                       CodeGeneratorMain
+     00000090  _P1                                CodeGeneratorMain
+     00000090  _P1_0                              CodeGeneratorMain
+     00000091  _P1_1                              CodeGeneratorMain
+     00000091  _RFIRQF1                           CodeGeneratorMain
+     00000092  _DPS                               CodeGeneratorMain
+     00000092  _P1_2                              CodeGeneratorMain
+     00000093  _MPAGE                             CodeGeneratorMain
+     00000093  _P1_3                              CodeGeneratorMain
+     00000094  _P1_4                              CodeGeneratorMain
+     00000094  _T2CTRL                            CodeGeneratorMain
+     00000095  _P1_5                              CodeGeneratorMain
+     00000095  _ST0                               CodeGeneratorMain
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000095  _STLOAD                            CodeGeneratorMain
+     00000096  _P1_6                              CodeGeneratorMain
+     00000096  _ST1                               CodeGeneratorMain
+     00000097  _P1_7                              CodeGeneratorMain
+     00000097  _ST2                               CodeGeneratorMain
+     00000098  _S0CON                             CodeGeneratorMain
+     00000098  _S0CON_0                           CodeGeneratorMain
+     00000098  _S0CON_ENCIF_0                     CodeGeneratorMain
+     00000099  _S0CON_1                           CodeGeneratorMain
+     00000099  _S0CON_ENCIF_1                     CodeGeneratorMain
+     0000009A  _IEN2                              CodeGeneratorMain
+     0000009A  _S0CON_2                           CodeGeneratorMain
+     0000009B  _S0CON_3                           CodeGeneratorMain
+     0000009B  _S1CON                             CodeGeneratorMain
+     0000009C  _S0CON_4                           CodeGeneratorMain
+     0000009C  _T2EVTCFG                          CodeGeneratorMain
+     0000009D  _S0CON_5                           CodeGeneratorMain
+     0000009D  _SLEEPSTA                          CodeGeneratorMain
+     0000009E  _CLKCONSTA                         CodeGeneratorMain
+     0000009E  _S0CON_6                           CodeGeneratorMain
+     0000009F  _FMAP                              CodeGeneratorMain
+     0000009F  _S0CON_7                           CodeGeneratorMain
+     000000A0  _P2                                CodeGeneratorMain
+     000000A0  _P2_0                              CodeGeneratorMain
+     000000A0  _P2__0                             CodeGeneratorMain
+     000000A1  _P2_1                              CodeGeneratorMain
+     000000A1  _P2__1                             CodeGeneratorMain
+     000000A1  _T2IRQF                            CodeGeneratorMain
+     000000A2  _P2_2                              CodeGeneratorMain
+     000000A2  _P2__2                             CodeGeneratorMain
+     000000A2  _T2M0                              CodeGeneratorMain
+     000000A3  _P2_3                              CodeGeneratorMain
+     000000A3  _P2__3                             CodeGeneratorMain
+     000000A3  _T2M1                              CodeGeneratorMain
+     000000A4  _P2_4                              CodeGeneratorMain
+     000000A4  _P2__4                             CodeGeneratorMain
+     000000A4  _T2MOVF0                           CodeGeneratorMain
+     000000A5  _P2_5                              CodeGeneratorMain
+     000000A5  _T2MOVF1                           CodeGeneratorMain
+     000000A6  _P2_6                              CodeGeneratorMain
+     000000A6  _T2MOVF2                           CodeGeneratorMain
+     000000A7  _P2_7                              CodeGeneratorMain
+     000000A7  _T2IRQM                            CodeGeneratorMain
+     000000A8  _IEN0                              CodeGeneratorMain
+     000000A8  _IEN0_0                            CodeGeneratorMain
+     000000A8  _IEN0_RFERRIE                      CodeGeneratorMain
+     000000A9  _IEN0_1                            CodeGeneratorMain
+     000000A9  _IEN0_ADCIE                        CodeGeneratorMain
+     000000A9  _IP0                               CodeGeneratorMain
+     000000AA  _IEN0_2                            CodeGeneratorMain
+     000000AA  _IEN0_URX0IE                       CodeGeneratorMain
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000AB  _IEN0_3                            CodeGeneratorMain
+     000000AB  _IEN0_URX1IE                       CodeGeneratorMain
+     000000AB  _P0IEN                             CodeGeneratorMain
+     000000AC  _IEN0_4                            CodeGeneratorMain
+     000000AC  _IEN0_ENCIE                        CodeGeneratorMain
+     000000AC  _P2IEN                             CodeGeneratorMain
+     000000AD  _IEN0_5                            CodeGeneratorMain
+     000000AD  _IEN0_STIE                         CodeGeneratorMain
+     000000AE  _IEN0_6                            CodeGeneratorMain
+     000000AE  _PMUX                              CodeGeneratorMain
+     000000AF  _IEN0_7                            CodeGeneratorMain
+     000000AF  _IEN0_EA                           CodeGeneratorMain
+     000000AF  _T1STAT                            CodeGeneratorMain
+     000000B1  _ENCDI                             CodeGeneratorMain
+     000000B2  _ENCDO                             CodeGeneratorMain
+     000000B3  _ENCCS                             CodeGeneratorMain
+     000000B4  _ADCCON1                           CodeGeneratorMain
+     000000B5  _ADCCON2                           CodeGeneratorMain
+     000000B6  _ADCCON3                           CodeGeneratorMain
+     000000B8  _IEN1                              CodeGeneratorMain
+     000000B8  _IEN1_0                            CodeGeneratorMain
+     000000B8  _IEN1_DMAIE                        CodeGeneratorMain
+     000000B9  _IEN1_1                            CodeGeneratorMain
+     000000B9  _IEN1_T1IE                         CodeGeneratorMain
+     000000B9  _IP1                               CodeGeneratorMain
+     000000BA  _ADCL                              CodeGeneratorMain
+     000000BA  _IEN1_2                            CodeGeneratorMain
+     000000BA  _IEN1_T2IE                         CodeGeneratorMain
+     000000BB  _ADCH                              CodeGeneratorMain
+     000000BB  _IEN1_3                            CodeGeneratorMain
+     000000BB  _IEN1_T3IE                         CodeGeneratorMain
+     000000BC  _IEN1_4                            CodeGeneratorMain
+     000000BC  _IEN1_T4IE                         CodeGeneratorMain
+     000000BC  _RNDL                              CodeGeneratorMain
+     000000BD  _IEN1_5                            CodeGeneratorMain
+     000000BD  _IEN1_P0IE                         CodeGeneratorMain
+     000000BD  _RNDH                              CodeGeneratorMain
+     000000BE  _IEN1_6                            CodeGeneratorMain
+     000000BE  _SLEEPCMD                          CodeGeneratorMain
+     000000BF  _IEN1_7                            CodeGeneratorMain
+     000000BF  _RFERRF                            CodeGeneratorMain
+     000000C0  _IRCON                             CodeGeneratorMain
+     000000C0  _IRCON_0                           CodeGeneratorMain
+     000000C0  _IRCON_DMAIF                       CodeGeneratorMain
+     000000C1  _IRCON_1                           CodeGeneratorMain
+     000000C1  _IRCON_T1IF                        CodeGeneratorMain
+     000000C1  _U0DBUF                            CodeGeneratorMain
+     000000C2  _IRCON_2                           CodeGeneratorMain
+     000000C2  _IRCON_T2IF                        CodeGeneratorMain
+     000000C2  _U0BAUD                            CodeGeneratorMain
+     000000C3  _IRCON_3                           CodeGeneratorMain
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000C3  _IRCON_T3IF                        CodeGeneratorMain
+     000000C3  _T2MSEL                            CodeGeneratorMain
+     000000C4  _IRCON_4                           CodeGeneratorMain
+     000000C4  _IRCON_T4IF                        CodeGeneratorMain
+     000000C4  _U0UCR                             CodeGeneratorMain
+     000000C5  _IRCON_5                           CodeGeneratorMain
+     000000C5  _IRCON_P0IF                        CodeGeneratorMain
+     000000C5  _U0GCR                             CodeGeneratorMain
+     000000C6  _CLKCONCMD                         CodeGeneratorMain
+     000000C6  _IRCON_6                           CodeGeneratorMain
+     000000C7  _IRCON_7                           CodeGeneratorMain
+     000000C7  _IRCON_STIF                        CodeGeneratorMain
+     000000C7  _MEMCTR                            CodeGeneratorMain
+     000000C9  _WDCTL                             CodeGeneratorMain
+     000000CA  _T3CNT                             CodeGeneratorMain
+     000000CB  _T3CTL                             CodeGeneratorMain
+     000000CC  _T3CCTL0                           CodeGeneratorMain
+     000000CD  _T3CC0                             CodeGeneratorMain
+     000000CE  _T3CCTL1                           CodeGeneratorMain
+     000000CF  _T3CC1                             CodeGeneratorMain
+     000000D0  _PSW                               CodeGeneratorMain
+     000000D0  _PSW_0                             CodeGeneratorMain
+     000000D0  _PSW_P                             CodeGeneratorMain
+     000000D1  _DMAIRQ                            CodeGeneratorMain
+     000000D1  _PSW_1                             CodeGeneratorMain
+     000000D1  _PSW_F1                            CodeGeneratorMain
+     000000D2  _DMA1CFGL                          CodeGeneratorMain
+     000000D2  _PSW_2                             CodeGeneratorMain
+     000000D2  _PSW_OV                            CodeGeneratorMain
+     000000D3  _DMA1CFGH                          CodeGeneratorMain
+     000000D3  _PSW_3                             CodeGeneratorMain
+     000000D4  _DMA0CFGL                          CodeGeneratorMain
+     000000D4  _PSW_4                             CodeGeneratorMain
+     000000D5  _DMA0CFGH                          CodeGeneratorMain
+     000000D5  _PSW_5                             CodeGeneratorMain
+     000000D5  _PSW_F0                            CodeGeneratorMain
+     000000D6  _DMAARM                            CodeGeneratorMain
+     000000D6  _PSW_6                             CodeGeneratorMain
+     000000D6  _PSW_AC                            CodeGeneratorMain
+     000000D7  _DMAREQ                            CodeGeneratorMain
+     000000D7  _PSW_7                             CodeGeneratorMain
+     000000D7  _PSW_CY                            CodeGeneratorMain
+     000000D8  _TIMIF                             CodeGeneratorMain
+     000000D8  _TIMIF_0                           CodeGeneratorMain
+     000000D8  _TIMIF_T3OVFIF                     CodeGeneratorMain
+     000000D9  _RFD                               CodeGeneratorMain
+     000000D9  _TIMIF_1                           CodeGeneratorMain
+     000000D9  _TIMIF_T3CH0IF                     CodeGeneratorMain
+     000000DA  _T1CC0L                            CodeGeneratorMain
+     000000DA  _TIMIF_2                           CodeGeneratorMain
+     000000DA  _TIMIF_T3CH1IF                     CodeGeneratorMain
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000DB  _T1CC0H                            CodeGeneratorMain
+     000000DB  _TIMIF_3                           CodeGeneratorMain
+     000000DB  _TIMIF_T4OVFIF                     CodeGeneratorMain
+     000000DC  _T1CC1L                            CodeGeneratorMain
+     000000DC  _TIMIF_4                           CodeGeneratorMain
+     000000DC  _TIMIF_T4CH0IF                     CodeGeneratorMain
+     000000DD  _T1CC1H                            CodeGeneratorMain
+     000000DD  _TIMIF_5                           CodeGeneratorMain
+     000000DD  _TIMIF_T4CH1IF                     CodeGeneratorMain
+     000000DE  _T1CC2L                            CodeGeneratorMain
+     000000DE  _TIMIF_6                           CodeGeneratorMain
+     000000DE  _TIMIF_T1OVFIM                     CodeGeneratorMain
+     000000DF  _T1CC2H                            CodeGeneratorMain
+     000000DF  _TIMIF_7                           CodeGeneratorMain
+     000000E0  _ACC                               CodeGeneratorMain
+     000000E0  _ACC_0                             CodeGeneratorMain
+     000000E1  _ACC_1                             CodeGeneratorMain
+     000000E1  _RFST                              CodeGeneratorMain
+     000000E2  _ACC_2                             CodeGeneratorMain
+     000000E2  _T1CNTL                            CodeGeneratorMain
+     000000E3  _ACC_3                             CodeGeneratorMain
+     000000E3  _T1CNTH                            CodeGeneratorMain
+     000000E4  _ACC_4                             CodeGeneratorMain
+     000000E4  _T1CTL                             CodeGeneratorMain
+     000000E5  _ACC_5                             CodeGeneratorMain
+     000000E5  _T1CCTL0                           CodeGeneratorMain
+     000000E6  _ACC_6                             CodeGeneratorMain
+     000000E6  _T1CCTL1                           CodeGeneratorMain
+     000000E7  _ACC_7                             CodeGeneratorMain
+     000000E7  _T1CCTL2                           CodeGeneratorMain
+     000000E8  _IRCON2                            CodeGeneratorMain
+     000000E8  _IRCON2_0                          CodeGeneratorMain
+     000000E8  _IRCON2_P2IF                       CodeGeneratorMain
+     000000E9  _IRCON2_1                          CodeGeneratorMain
+     000000E9  _IRCON2_UTX0IF                     CodeGeneratorMain
+     000000E9  _RFIRQF0                           CodeGeneratorMain
+     000000EA  _IRCON2_2                          CodeGeneratorMain
+     000000EA  _IRCON2_UTX1IF                     CodeGeneratorMain
+     000000EA  _T4CNT                             CodeGeneratorMain
+     000000EB  _IRCON2_3                          CodeGeneratorMain
+     000000EB  _IRCON2_P1IF                       CodeGeneratorMain
+     000000EB  _T4CTL                             CodeGeneratorMain
+     000000EC  _IRCON2_4                          CodeGeneratorMain
+     000000EC  _IRCON2_WDTIF                      CodeGeneratorMain
+     000000EC  _T4CCTL0                           CodeGeneratorMain
+     000000ED  _IRCON2_5                          CodeGeneratorMain
+     000000ED  _T4CC0                             CodeGeneratorMain
+     000000EE  _IRCON2_6                          CodeGeneratorMain
+     000000EE  _T4CCTL1                           CodeGeneratorMain
+     000000EF  _IRCON2_7                          CodeGeneratorMain
+     000000EF  _T4CC1                             CodeGeneratorMain
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000F0  _B                                 CodeGeneratorMain
+     000000F0  _B_0                               CodeGeneratorMain
+     000000F1  _B_1                               CodeGeneratorMain
+     000000F1  _PERCFG                            CodeGeneratorMain
+     000000F2  _APCFG                             CodeGeneratorMain
+     000000F2  _B_2                               CodeGeneratorMain
+     000000F3  _B_3                               CodeGeneratorMain
+     000000F3  _P0SEL                             CodeGeneratorMain
+     000000F4  _B_4                               CodeGeneratorMain
+     000000F4  _P1SEL                             CodeGeneratorMain
+     000000F5  _B_5                               CodeGeneratorMain
+     000000F5  _P2SEL                             CodeGeneratorMain
+     000000F6  _B_6                               CodeGeneratorMain
+     000000F6  _P1INP                             CodeGeneratorMain
+     000000F7  _B_7                               CodeGeneratorMain
+     000000F7  _P2INP                             CodeGeneratorMain
+     000000F8  _U1CSR                             CodeGeneratorMain
+     000000F8  _U1CSR_0                           CodeGeneratorMain
+     000000F8  _U1CSR_ACTIVE                      CodeGeneratorMain
+     000000F9  _U1CSR_1                           CodeGeneratorMain
+     000000F9  _U1CSR_TX_BYTE                     CodeGeneratorMain
+     000000F9  _U1DBUF                            CodeGeneratorMain
+     000000FA  _U1BAUD                            CodeGeneratorMain
+     000000FA  _U1CSR_2                           CodeGeneratorMain
+     000000FA  _U1CSR_RX_BYTE                     CodeGeneratorMain
+     000000FB  _U1CSR_3                           CodeGeneratorMain
+     000000FB  _U1CSR_ERR                         CodeGeneratorMain
+     000000FB  _U1UCR                             CodeGeneratorMain
+     000000FC  _U1CSR_4                           CodeGeneratorMain
+     000000FC  _U1CSR_FE                          CodeGeneratorMain
+     000000FC  _U1GCR                             CodeGeneratorMain
+     000000FD  _P0DIR                             CodeGeneratorMain
+     000000FD  _U1CSR_5                           CodeGeneratorMain
+     000000FD  _U1CSR_SLAVE                       CodeGeneratorMain
+     000000FE  _P1DIR                             CodeGeneratorMain
+     000000FE  _U1CSR_6                           CodeGeneratorMain
+     000000FE  _U1CSR_RE                          CodeGeneratorMain
+     000000FF  _P2DIR                             CodeGeneratorMain
+     000000FF  _U1CSR_7                           CodeGeneratorMain
+     000000FF  _U1CSR_MODE                        CodeGeneratorMain
+     00000C95  _accelEnabler                      CodeGeneratorMain
+     00000C96  _timeEnabler                       CodeGeneratorMain
+     00000EA2  _buf                               CodeGeneratorMain
+     00000EA6  _fer                               CodeGeneratorMain
+     00000FBD  _simpleBLEPeripheral_TaskID        CodeGeneratorMain
+     000017DD  _attDeviceName                     CodeGeneratorMain
+     0000618D  _RFSTAT                            CodeGeneratorMain
+     000061A9  _ATEST                             CodeGeneratorMain
+     000061AD  _OPAMPMC                           CodeGeneratorMain
+     000061AE  _RFC_OBS                           CodeGeneratorMain
+     000061AF  _RFC_OBS_CTRL1                     CodeGeneratorMain
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000061B0  _RFC_OBS_CTRL2                     CodeGeneratorMain
+     00006200  _USBADDR                           CodeGeneratorMain
+     00006201  _USBPOW                            CodeGeneratorMain
+     00006202  _USBIIF                            CodeGeneratorMain
+     00006204  _USBOIF                            CodeGeneratorMain
+     00006207  _USBIIE                            CodeGeneratorMain
+     00006209  _USBOIE                            CodeGeneratorMain
+     0000620B  _USBCIE                            CodeGeneratorMain
+     0000620C  _USBFRML                           CodeGeneratorMain
+     0000620D  _USBFRMH                           CodeGeneratorMain
+     0000620E  _USBINDEX                          CodeGeneratorMain
+     0000620F  _USBCTRL                           CodeGeneratorMain
+     00006210  _USBMAXI                           CodeGeneratorMain
+     00006211  _USBCS0                            CodeGeneratorMain
+     00006211  _USBCSIL                           CodeGeneratorMain
+     00006243  _OBSSEL0                           CodeGeneratorMain
+     00006244  _OBSSEL1                           CodeGeneratorMain
+     00006245  _OBSSEL2                           CodeGeneratorMain
+     00006246  _OBSSEL3                           CodeGeneratorMain
+     00006247  _OBSSEL4                           CodeGeneratorMain
+     00006248  _OBSSEL5                           CodeGeneratorMain
+     00006249  _CHVER                             CodeGeneratorMain
+     0000624A  _CHIPID                            CodeGeneratorMain
+     0000624B  _TR0                               CodeGeneratorMain
+     00006260  _DBGDATA                           CodeGeneratorMain
+     00006264  _BATTMON                           CodeGeneratorMain
+     00006265  _IVCTRL                            CodeGeneratorMain
+     00006270  _FCTL                              CodeGeneratorMain
+     00006271  _FADDRL                            CodeGeneratorMain
+     00006272  _FADDRH                            CodeGeneratorMain
+     00006273  _FWDATA                            CodeGeneratorMain
+     00006276  _CHIPINFO0                         CodeGeneratorMain
+     00006277  _CHIPINFO1                         CodeGeneratorMain
+     00006281  _IRCTL                             CodeGeneratorMain
+     00006290  _CLD                               CodeGeneratorMain
+     000062A3  _T1CCTL3                           CodeGeneratorMain
+     000062A4  _T1CCTL4                           CodeGeneratorMain
+     000062AC  _T1CC3L                            CodeGeneratorMain
+     000062AD  _T1CC3H                            CodeGeneratorMain
+     000062AE  _T1CC4L                            CodeGeneratorMain
+     000062AF  _T1CC4H                            CodeGeneratorMain
+     000062B0  _STCC                              CodeGeneratorMain
+     000062B1  _STCS                              CodeGeneratorMain
+     000062B2  _STCV0                             CodeGeneratorMain
+     000062B3  _STCV1                             CodeGeneratorMain
+     000062B4  _STCV2                             CodeGeneratorMain
+     000062C0  _OPAMPC                            CodeGeneratorMain
+     000062C1  _OPAMPS                            CodeGeneratorMain
+     000062D0  _CMPCTL                            CodeGeneratorMain
+ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+REG_BANK_0                          00000000    00000008 =           8. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+DSEG                                00000000    00000009 =           9. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000008  _bp                                _bp
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                0000A000    00000198 =         408. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000A000  _Main                              CodeGeneratorMain
+C:   0000A06A  _osalTimerInit                     s2i_OSAL_Timers
+C:   0000A06E  _osal_start_timerEx                s2i_OSAL_Timers
+C:   0000A0B4  _osal_start_reload_timer           s2i_OSAL_Timers
+C:   0000A0FA  _osal_stop_timerEx                 s2i_OSAL_Timers
+C:   0000A118  _osal_get_timeoutEx                s2i_OSAL_Timers
+C:   0000A13B  _osal_timer_ISR                    s2i_OSAL_Timers
+C:   0000A13C  _osal_adjust_timers                s2i_OSAL_Timers
+C:   0000A13D  _osalTimerUpdate                   s2i_OSAL_Timers
+C:   0000A148  _osal_timer_num_active             s2i_OSAL_Timers
+C:   0000A149  _osal_sleep_timers                 s2i_OSAL_Timers
+C:   0000A14A  _osal_unsleep_timers               s2i_OSAL_Timers
+C:   0000A14B  _osal_GetSystemClock               s2i_OSAL_Timers
+C:   0000A156  _osal_next_timeout                 s2i_OSAL_Timers
+C:   0000A157  _GGS_SetParameter                  s2i_gapgattserver
+C:   0000A177  _GGS_GetParameter                  s2i_gapgattserver
+C:   0000A181  _GGS_AddService                    s2i_gapgattserver
+C:   0000A18E  _GGS_DelService                    s2i_gapgattserver
+C:   0000A191  _GGS_RegisterAppCBs                s2i_gapgattserver
+C:   0000A192  _GGS_SetParamValue                 s2i_gapgattserver
+C:   0000A193  _GGS_GetParamValue                 s2i_gapgattserver
+ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CONST                               0000A198    0000000F =          15. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
+
+Files Linked                              [ module(s) ]
+
+CodeGeneratorMain.rel                     [  ]
+
+
+Libraries Linked                          [ object file ]
+
+sdcc2iar.lib                              [ s2i_OSAL_Timers.rel ]
+sdcc2iar.lib                              [ s2i_gapgattserver.rel ]
+c:\Program Files\SDCC\bin\..\lib\small-stack-auto/libsdcc.lib
+                                          [ _bp.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
+
+User Base Address Definitions
+
+HOME = 0xa000
+XSEG = 0x0ebd
+PSEG = 0x0ebd
+ISEG = 0x0000
+BSEG = 0x0000
+SSEG = 0x0080
+
+
